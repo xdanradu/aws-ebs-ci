@@ -1,9 +1,9 @@
 on:
-    release:
-      types: [created]
-  
-  name: Deploy to Amazon Elastic Beanstalk
-  
+  release:
+    types: [created]
+
+  name: Deploy to Amazon ECS
+
   jobs:
     deploy:
       name: Deploy
