@@ -14,8 +14,8 @@ on:
         uses: actions/checkout@v2
   
         - name: Get timestamp
-        uses: gerred/actions/current-time@master
-        id: current-time
+          uses: gerred/actions/current-time@master
+          id: current-time
         
         - name: Run string replace
           uses: frabert/replace-string-action@master
