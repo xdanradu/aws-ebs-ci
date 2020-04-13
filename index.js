@@ -2,25 +2,18 @@
 var express = require("express");
 var app = express();
 const fs = require("fs");
-/*var cors = require('cors');
+var cors = require('cors');
 var whitelist = ['http://localhost', 'http://localhost:4200', 'http://angularfrontend-env.eba-msspxnt2.us-east-1.elasticbeanstalk.com']
 var corsOptions = {
   origin: function (origin, callback) {
-    console.log(origin);
-    if (whitelist.indexOf(origin) !== -1) {
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
       callback(null, true)
     } else {
       callback(new Error('Not allowed by CORS'))
     }
   }
 }
-app.use(cors(corsOptions));*/
-app.use(function (req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', 'http://angularfrontend-env.eba-msspxnt2.us-east-1.elasticbeanstalk.com');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-  next();
-  });
+app.use(cors(corsOptions));
 
 
 const books = [
