@@ -2,6 +2,20 @@
 var express = require("express");
 var app = express();
 const fs = require("fs");
+var cors = require('cors');
+var whitelist = ['http://localhost:4200, http://angularfrontend-env.eba-msspxnt2.us-east-1.elasticbeanstalk.com/']
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+app.use(cors(corsOptions));
+
+
 
 const books = [
   {
