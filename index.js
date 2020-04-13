@@ -2,11 +2,11 @@
 var express = require("express");
 var app = express();
 const fs = require("fs");
-var cors = require('cors');
-var app = express();
-var whitelist = ['http://localhost:4200', 'http://angularfrontend-env.eba-msspxnt2.us-east-1.elasticbeanstalk.com']
+/*var cors = require('cors');
+var whitelist = ['http://localhost', 'http://localhost:4200', 'http://angularfrontend-env.eba-msspxnt2.us-east-1.elasticbeanstalk.com']
 var corsOptions = {
   origin: function (origin, callback) {
+    console.log(origin);
     if (whitelist.indexOf(origin) !== -1) {
       callback(null, true)
     } else {
@@ -14,8 +14,13 @@ var corsOptions = {
     }
   }
 }
-app.use(cors(corsOptions));
-
+app.use(cors(corsOptions));*/
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', 'http://angularfrontend-env.eba-msspxnt2.us-east-1.elasticbeanstalk.com');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  next();
+  });
 
 
 const books = [
