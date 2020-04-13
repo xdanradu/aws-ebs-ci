@@ -52,6 +52,15 @@ app.get('/data', (req, res) => {
 });
 
 
+app.post('/login', (req, res) => {
+  res.json({
+          accessToken: 'accessToken',
+          refreshToken: 'refreshToken'
+      });
+
+});
+
+
 
 app.listen(5000, () => {
   console.log("Server running on port 5000");
