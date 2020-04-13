@@ -3,7 +3,8 @@ var express = require("express");
 var app = express();
 const fs = require("fs");
 var cors = require('cors');
-var whitelist = ['http://localhost:4200, http://angularfrontend-env.eba-msspxnt2.us-east-1.elasticbeanstalk.com']
+var app = express();
+var whitelist = ['http://localhost:4200', 'http://angularfrontend-env.eba-msspxnt2.us-east-1.elasticbeanstalk.com']
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
