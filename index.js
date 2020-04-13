@@ -1,6 +1,7 @@
 "use strict";
 var express = require("express");
 var app = express();
+const fs = require("fs");
 
 const books = [
   {
@@ -38,6 +39,19 @@ app.get("/", (req, res, next) => {
 app.get('/books', (req, res) => {
   res.json(books);
 });
+
+app.get('/data', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  try {
+    const data = JSON.parse(fs.readFileSync("data/prod-data.json"));
+    res.json(data);
+  } catch (error) {
+    console.log("Cannot read data");
+    res.json({ status: "error" });
+  }
+});
+
+
 
 app.listen(5000, () => {
   console.log("Server running on port 5000");

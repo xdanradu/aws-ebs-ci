@@ -7,7 +7,7 @@
     "test": "echo \"Success\"",
     "start": "node index.js",
     "start-prod": "node index.js -production",
-    "start-api": "nodemon rest-api.js",
+    "start-api": "nodemon index.js",
     "start-docker": "node index.js --host 0.0.0.0"
   },
   "author": "",
